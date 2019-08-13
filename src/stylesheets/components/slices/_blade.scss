@@ -1,0 +1,30 @@
+.blade{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+
+    .image{
+        height:300px;
+        width:auto;
+    }
+
+    .content-container{
+        padding:40px;
+
+        h3{
+            color:pink;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        h2{
+            color:black;
+            font-size:40px;
+            font-weight:bold;
+        }
+    }
+}
+
