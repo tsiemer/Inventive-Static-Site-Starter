@@ -43,6 +43,32 @@ export const query = graphql`
         }
       }
     }
+
+    allPages{
+      edges{
+        node{
+          title
+          date
+        
+          body{
+            __typename
+            ... on PRISMIC_PageBodyBlade{
+              type
+              label
+
+              primary{
+                section_title
+                subtitle
+                content
+                featured_image
+                button_color
+                button_text
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 `
@@ -64,6 +90,7 @@ export default ({ data }) => {
   // Define the Blog Home & Blog Post content returned from Prismic
   const doc = data.prismic.allBlog_homes.edges.slice(0,1).pop();
   const posts = data.prismic.allPosts.edges;
+  const pages = data.prismic.allPages.edges;
 
   if(!doc) return null;
 
@@ -71,6 +98,7 @@ export default ({ data }) => {
     <Layout>
       <BlogHomeHead home={ doc.node } />
       <BlogPosts posts={ posts }/>
+      <BlogPosts posts={ pages }/>
     </Layout>
   )
 }
