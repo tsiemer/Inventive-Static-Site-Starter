@@ -64,16 +64,14 @@ const PostSummary = ({ post }) => {
 
 export default ({ posts }) => {
   if(!posts) return null;
-  let counter = 0;
 
   
   return(
     <div className="blog-posts container">
       {posts.map((post) => {
         console.log(post);
-        return <PostSummary post={ post.node } key={ post.node._meta.id || counter }/>
+        return <PostSummary post={ post.node } key={ post.node._meta.id }/>
       })}
     </div>
   )
-  counter++;
 }
