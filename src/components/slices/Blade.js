@@ -6,7 +6,7 @@ import htmlSerializer from '../../utils/htmlSerializer'
 export default ({ slice }) =>
   <div className="blade">
     <div className="image">
-      <img src={`${slice.primary.image}`}/>
+      <img src={`${slice.primary.image}`} alt={"Something Awesome sorry for no better definition."}/>
     </div>
     <div className="content-container">
         <h3>{ slice.primary.subtitle }</h3>

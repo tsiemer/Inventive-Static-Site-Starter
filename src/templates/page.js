@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { Blade, Text } from '../components/slices'
@@ -11,6 +11,12 @@ query PageQuery($uid: String) {
     allPages(uid: $uid){
       edges{
         node{
+          _meta{
+            id
+            uid
+            type
+          }
+
           title
           date
         
@@ -37,27 +43,10 @@ query PageQuery($uid: String) {
 }
 `
 
-
-
-
-// export default class Page extends React.Component{
-//   render(){
-//     return (
-//       <>
-//       </>
-//     )
-//   }
-// }
-
-
-
-
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
-      console.log(slice.type);
-
       switch(slice.type) {
         case 'text': return (
           <div key={ index } className="homepage-slice-wrapper">
@@ -66,8 +55,6 @@ const PageSlices = ({ slices }) => {
         )
 
         case 'blade': return (
-          console.log("Using a blade slice!"),
-
           <div key={ index } className="homepage-slice-wrapper">
             { <Blade slice={ slice } /> }
           </div>
