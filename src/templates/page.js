@@ -66,6 +66,8 @@ const PageSlices = ({ slices }) => {
         )
 
         case 'blade': return (
+          console.log("Using a blade slice!"),
+
           <div key={ index } className="homepage-slice-wrapper">
             { <Blade slice={ slice } /> }
           </div>
