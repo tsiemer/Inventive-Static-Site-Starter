@@ -66,7 +66,7 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
-        default: return
+        default: return null;
       }
     })();
     return res;
