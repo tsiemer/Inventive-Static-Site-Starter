@@ -98,7 +98,7 @@ export default ({ data }) => {
     <Layout>
       <BlogHomeHead home={ doc.node } />
       <BlogPosts posts={ posts }/>
-      <BlogPosts posts={ pages }/>
+      {/* <BlogPosts posts={ pages }/> */}
     </Layout>
   )
 }
