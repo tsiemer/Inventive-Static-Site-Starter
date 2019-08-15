@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs'
 import { graphql } from 'gatsby';
 import Layout from '../components/layouts'
 import BlogPosts from '../components/BlogPosts'
+import PageLinks from '../components/PageLinks'
 
 // Query for the Blog Home content in Prismic
 export const query = graphql`
@@ -98,7 +99,7 @@ export default ({ data }) => {
     <Layout>
       <BlogHomeHead home={ doc.node } />
       <BlogPosts posts={ posts }/>
-      {/* <BlogPosts posts={ pages }/> */}
+      <PageLinks pages={pages}/>
     </Layout>
   )
 }
