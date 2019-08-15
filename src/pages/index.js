@@ -48,9 +48,15 @@ export const query = graphql`
     allPages{
       edges{
         node{
+          _meta{
+            id
+            uid
+            type
+          }
+          
           title
           date
-        
+
           body{
             __typename
             ... on PRISMIC_PageBodyBlade{

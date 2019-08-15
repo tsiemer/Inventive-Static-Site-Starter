@@ -4,7 +4,6 @@ import { RichText, Date } from 'prismic-reactjs'
 import { linkResolver } from '../utils/linkResolver'
 
 
-
 const PageSummary = ({ page }) => {
   
   let pageDate = Date(page.date);
@@ -19,9 +18,9 @@ const PageSummary = ({ page }) => {
   const defaultTitle = "Untitled"
   
   return (
-    <div className="page-summary" key="1" >
+    <div className="page-summary" key={ page.id } >
       <h2>
-        <Link to={ linkResolver(page.type) }>
+        <Link to={ linkResolver(page._meta) }>
           { RichText.asText(page.title).length !== 0 ? RichText.asText(page.title) : defaultTitle }
         </Link>
       </h2>
@@ -37,9 +36,10 @@ export default ({ pages }) => {
 
   
   return(
-    <div className="page container">
+    <div className="blog-pages container">
       {pages.map((page) => {
-        return <PageSummary page={ page.node }/>
+        console.log(page);
+        return <PageSummary page={ page.node } key={ page.node._meta.id }/>
       })}
     </div>
   )
