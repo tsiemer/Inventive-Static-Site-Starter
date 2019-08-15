@@ -45,6 +45,8 @@ query PageQuery($uid: String) {
 
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
+  console.log("Setting up the Slices");
+
   return slices.map((slice, index) => {
     const res = (() => {
       switch(slice.type) {
@@ -69,6 +71,8 @@ const PageSlices = ({ slices }) => {
 
 // Display the title, date, and content of the Post
 const PageBody = ({ page }) => {
+  console.log("Setting up the page body");
+
   const titled = page.title.length !== 0 ;
   return (
     <div>
@@ -88,7 +92,7 @@ const PageBody = ({ page }) => {
 }
 
 export default (props) => {
-  console.log(props);
+  console.log("Page Props", props);
   // Define the Post content returned from Prismic
   const doc = props.data.prismic.allPages.edges.slice(0,1).pop();
 
