@@ -21,7 +21,7 @@ const PageSummary = ({ page }) => {
   return (
     <div className="page-summary" key="1" >
       <h2>
-        <Link to={ linkResolver(page._meta) }>
+        <Link to={ linkResolver(page.type) }>
           { RichText.asText(page.title).length !== 0 ? RichText.asText(page.title) : defaultTitle }
         </Link>
       </h2>
