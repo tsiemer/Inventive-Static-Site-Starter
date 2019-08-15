@@ -4,10 +4,8 @@ import { linkResolver } from '../../utils/linkResolver'
 import htmlSerializer from '../../utils/htmlSerializer'
 
 export default ({ slice }) =>
-  <div className="blade container">
-    <div className="image">
-      <img src={`${slice.primary.featured_image.url}`} alt={"Something Awesome sorry for not having a better description."}/>
-    </div>
+  <div className="blade">
+    <img className="feature_image" src={`${slice.primary.featured_image.url}`} alt={"Something Awesome sorry for not having a better description."}/>
     <div className="content-container">
         <h3>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
         <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
