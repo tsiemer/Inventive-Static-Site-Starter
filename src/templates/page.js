@@ -45,7 +45,8 @@ query PageQuery($uid: String) {
 
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
-  console.log("Setting up the Slices");
+  console.log("Setting up the Slices", slices);
+
 
   return slices.map((slice, index) => {
     const res = (() => {
