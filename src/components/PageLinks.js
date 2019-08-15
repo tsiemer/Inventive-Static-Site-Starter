@@ -38,7 +38,7 @@ export default ({ pages }) => {
   return(
     <div className="blog-pages container">
       {pages.map((page) => {
-        console.log(page);
+        // console.log(page);
         return <PageSummary page={ page.node } key={ page.node._meta.id }/>
       })}
     </div>
