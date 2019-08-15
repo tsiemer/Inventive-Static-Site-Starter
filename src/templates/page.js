@@ -4,7 +4,7 @@ import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { Blade, Text } from '../components/slices'
 
-// Query for the Blog Post content in Prismic
+// Query for the Page content in Prismic
 export const query = graphql`
 query PageQuery($uid: String) {
   prismic{
@@ -56,6 +56,8 @@ query PageQuery($uid: String) {
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
+      console.log(slice.type);
+
       switch(slice.type) {
         case 'text': return (
           <div key={ index } className="homepage-slice-wrapper">
@@ -77,7 +79,7 @@ const PageSlices = ({ slices }) => {
 }
 
 // Display the title, date, and content of the Post
-const PostBody = ({ page }) => {
+const PageBody = ({ page }) => {
   const titled = page.title.length !== 0 ;
   return (
     <div>
@@ -104,7 +106,7 @@ export default (props) => {
 
   return(
     <Layout>
-      {/* <PostBody blogPost={ doc.node } /> */}
+      <PageBody page={ doc.node } />
     </Layout>
   )
 }
