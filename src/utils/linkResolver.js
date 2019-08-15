@@ -7,7 +7,7 @@ exports.linkResolver = function linkResolver(doc) {
   if (doc.type === 'post') {
     return '/blog/' + doc.uid;
   } else if (doc.type === 'page'){
-    return '/pages/' + doc.uid;
+    return doc.uid;
   }
 
   // Homepage route fallback
