@@ -49,6 +49,8 @@ const PageSlices = ({ slices }) => {
 
 
   return slices.map((slice, index) => {
+    console.log(slice, index);
+
     const res = (() => {
       switch(slice.type) {
         case 'text': return (
@@ -58,6 +60,7 @@ const PageSlices = ({ slices }) => {
         )
 
         case 'blade': return (
+          console.log(slice),
           <div key={ index } className="homepage-slice-wrapper">
             { <Blade slice={ slice } /> }
           </div>
