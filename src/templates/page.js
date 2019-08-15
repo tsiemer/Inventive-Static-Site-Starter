@@ -88,6 +88,7 @@ const PageBody = ({ page }) => {
 }
 
 export default (props) => {
+  console.log(props);
   // Define the Post content returned from Prismic
   const doc = props.data.prismic.allPages.edges.slice(0,1).pop();
 

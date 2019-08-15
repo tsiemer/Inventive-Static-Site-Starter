@@ -26,7 +26,7 @@ module.exports = {
           match: '/pages/:uid',
           path: '/page-preview',
           component: require.resolve('./src/templates/page.js')
-        },]
+        }]
       }
     },
     `gatsby-plugin-sass`,
