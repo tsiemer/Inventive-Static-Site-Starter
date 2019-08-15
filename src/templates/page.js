@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { Blade, Text } from '../components/slices'
@@ -36,6 +36,20 @@ query PageQuery($uid: String) {
   }
 }
 `
+
+
+
+
+// export default class Page extends React.Component{
+//   render(){
+//     return (
+//       <>
+//       </>
+//     )
+//   }
+// }
+
+
 
 
 // Sort and display the different slice options
