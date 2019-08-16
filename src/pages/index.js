@@ -68,7 +68,25 @@ export const query = graphql`
                 subtitle
                 content
                 featured_image
+                cta_button_text
+                cta_button_color
+                blade_background_color
                 button_color
+
+                cta_button{
+                  __typename
+
+                  ... on PRISMIC__ExternalLink{
+                    url
+                  }
+
+                  ... on PRISMIC__FileLink{
+                    name
+                    url
+                    size
+                  }
+
+                }
               }
             }
           }

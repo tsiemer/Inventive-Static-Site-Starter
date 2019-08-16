@@ -32,6 +32,25 @@ query PageQuery($uid: String) {
                 content
                 featured_image
                 button_color
+                image_side
+                cta_button_text
+                cta_button_color
+                blade_background_color
+
+                cta_button{
+                  __typename
+
+                  ... on PRISMIC__ExternalLink{
+                    url
+                  }
+
+                  ... on PRISMIC__FileLink{
+                    name
+                    url
+                    size
+                  }
+
+                }
               }
             }
           }
@@ -44,12 +63,7 @@ query PageQuery($uid: String) {
 
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
-  console.log("Setting up the Slices", slices);
-
-
   return slices.map((slice, index) => {
-    console.log(slice, index);
-
     const res = (() => {
       switch(slice.type) {
         case 'text': return (
@@ -59,7 +73,6 @@ const PageSlices = ({ slices }) => {
         )
 
         case 'blade': return (
-          console.log(slice),
           <div key={ index } className="homepage-slice-wrapper">
             { <Blade slice={ slice } /> }
           </div>
@@ -74,8 +87,6 @@ const PageSlices = ({ slices }) => {
 
 // Display the title, date, and content of the Post
 const PageBody = ({ page }) => {
-  console.log("Setting up the page body");
-
   const titled = page.title.length !== 0 ;
   return (
     <div>
@@ -95,7 +106,6 @@ const PageBody = ({ page }) => {
 }
 
 export default (props) => {
-  console.log("Page Props", props);
   // Define the Post content returned from Prismic
   const doc = props.data.prismic.allPages.edges.slice(0,1).pop();
 
