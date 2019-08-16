@@ -4,7 +4,7 @@ import { linkResolver } from '../../utils/linkResolver';
 import htmlSerializer from '../../utils/htmlSerializer';
 
 export default ({ slice }) =>
-  <div className="blade" style={{backgroundColor: slice.primary.blade_background_color}}>
+  <div className={"blade " + slice.primary.blade_background_color}>
 
     {slice.primary.image_side == "right" 
     ? 
@@ -15,7 +15,7 @@ export default ({ slice }) =>
            <p>
               { RichText.render(slice.primary.content, linkResolver, htmlSerializer) }
           </p>
-          <a className="cta_button" style={{backgroundColor: slice.primary.cta_button_color}} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>
+          <a className={"cta_button " + slice.primary.cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>
       </div>
       
       <img style={{ maxWidth: 500 + 'px'}} className="feature_image" src={`${slice.primary.featured_image.url}`} alt={"Something Awesome sorry for not having a better description."}/> 
@@ -30,7 +30,7 @@ export default ({ slice }) =>
               <p>
                 { RichText.render(slice.primary.content, linkResolver, htmlSerializer) }
             </p>
-            <a className="cta_button" style={{backgroundColor: slice.primary.cta_button_color}} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>
+            <a className={"cta_button " + slice.primary.cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>
         </div> 
     </>
     }

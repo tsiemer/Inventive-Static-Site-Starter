@@ -11,6 +11,34 @@
     justify-content: center;
     align-items:center;
 
+    &.orange{
+        background-color: $primary_orange;
+    }
+    
+    &.red{
+        background-color: $primary_red;
+    }
+
+    &.purple{
+        background-color: $primary_purple;
+    }
+
+    &.green{
+        background-color: $primary_green;
+    }
+    
+    &.navygreen{
+        background-color: $primary_navy;
+    }
+    
+    &.white{
+        background-color: $primary_white;
+    }
+    
+    &.blue{
+        background-color: $primary_blue;
+    }
+
     .featured_image{
         width:200px;
         flex:1;
@@ -42,8 +70,42 @@
 
 
 .cta_button {
-    // background-color:$cta_color;
     color:white;
     padding:10px 20px;
     border-radius:20px;
+
+    &.orange{
+        background-color: $primary_orange;
+        color:white;
+    }
+    
+    &.red{
+        background-color: $primary_red;
+        color:white;
+    }
+
+    &.purple{
+        background-color: $primary_purple;
+        color:white;
+    }
+
+    &.green{
+        background-color: $primary_green;
+        color:white;
+    }
+    
+    &.navygreen{
+        background-color: $primary_navy;
+        color:white;
+    }
+    
+    &.white{
+        background-color: $primary_white;
+        color:black;
+    }
+    
+    &.blue{
+        background-color: $primary_blue;
+        color:white;
+    }
 }
