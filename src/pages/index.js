@@ -69,7 +69,6 @@ export const query = graphql`
                 content
                 featured_image
                 button_color
-                button_text
               }
             }
           }

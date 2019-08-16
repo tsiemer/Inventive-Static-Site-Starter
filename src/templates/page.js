@@ -32,7 +32,6 @@ query PageQuery($uid: String) {
                 content
                 featured_image
                 button_color
-                button_text
               }
             }
           }
