@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
-import { Blade, Text } from '../components/slices'
+import { Blade, Text, StaffMember } from '../components/slices'
 
 // Query for the Page content in Prismic
 export const query = graphql`
@@ -53,6 +53,18 @@ query PageQuery($uid: String) {
                 }
               }
             }
+
+            ... on PRISMIC_PageBodyStaff_member {
+              type
+              label
+
+              fields{
+              	full_name  
+                job_title
+                staff_image
+                bio
+              }
+            }
           }
         }
       }
@@ -78,6 +90,12 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
+        case 'staff_member' : return (
+          <div key={ index }>
+            { <StaffMember slice={ slice } /> }
+          </div>
+        )
+
         default: return null;
       }
     })();
@@ -88,6 +106,7 @@ const PageSlices = ({ slices }) => {
 // Display the title, date, and content of the Post
 const PageBody = ({ page }) => {
   const titled = page.title.length !== 0 ;
+
   return (
     <div>
       <div className="container post-header">
@@ -100,7 +119,9 @@ const PageBody = ({ page }) => {
         </h1>
       </div>
       {/* Go through the slices of the post and render the appropiate one */}
-      <PageSlices slices={ page.body } />
+      <div className="staff">
+        <PageSlices slices={ page.body } />
+      </div>
     </div>
   );
 }

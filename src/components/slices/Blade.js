@@ -10,7 +10,7 @@ export default ({ slice }) =>
     ? 
     <>
       <div className="content_container">
-          <h3>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
+          <h3 className={ "subtitle " + slice.primary.cta_button_color}>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
           <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
            <p>
               { RichText.render(slice.primary.content, linkResolver, htmlSerializer) }
@@ -25,7 +25,7 @@ export default ({ slice }) =>
          <img style={{ maxWidth: 500 + 'px'}} className="feature_image" src={`${slice.primary.featured_image.url}`} alt={"Something Awesome sorry for not having a better description."}/>
 
          <div className="content_container">
-            <h3>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
+            <h3 className={"subtitle " + slice.primary.cta_button_color}>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
             <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
               <p>
                 { RichText.render(slice.primary.content, linkResolver, htmlSerializer) }

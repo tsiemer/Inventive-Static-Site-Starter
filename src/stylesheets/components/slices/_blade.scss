@@ -49,7 +49,6 @@
         flex:3;
 
         h3{
-            color:$blade_subtitle_color;
             font-size:20px;
             font-weight:bold;
         }
@@ -107,5 +106,35 @@
     &.blue{
         background-color: $primary_blue;
         color:white;
+    }
+}
+
+.subtitle {
+    &.orange{
+        color:$primary_orange;
+    }
+    
+    &.red{
+        color:$primary_red;
+    }
+
+    &.purple{
+        color:$primary_purple;
+    }
+
+    &.green{
+        color: $primary_green;
+    }
+    
+    &.navygreen{
+        color:$primary_navy;
+    }
+    
+    &.white{
+        color:black;
+    }
+    
+    &.blue{
+        color:$primary_blue;
     }
 }
