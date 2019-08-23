@@ -8,7 +8,7 @@ export default ({ slice }) =>
   <div className={"skew-c " + slice.primary.blade_background_color}></div>
     <div className={"blade " + slice.primary.blade_background_color}>
 
-      {slice.primary.image_side == "right" 
+      {slice.primary.image_side === "right" 
       ? 
       <>
         <div className="content_container">

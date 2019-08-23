@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Footer from './Footer'
-import '../../../src/stylesheets/main.scss'
+import '../../stylesheets/main.scss'
 
 export default props => (
   <StaticQuery
