@@ -1,6 +1,16 @@
-const {src, dest } = require('gulp');
+const {src, dest, task } = require('gulp');
 
-exports.default = function() {
-    return src('./IGP-Framework/components/*/*.js')
-    .pipe(dest('./src/components'))
-}
+
+task('components', function(cb){
+    return (
+        src('./IGP-Framework/components/*/*.js').pipe(dest('./src/components'))
+    )
+})
+
+task('styles', function(cb) {
+    return (
+        src('./IGP-Framework/stylesheets/*.scss').pipe(dest('./src/stylesheets')),
+        src('./IGP-Framework/stylesheets/*/*.scss').pipe(dest('./src/stylesheets')),
+        src('./IGP-Framework/stylesheets/*/*/*.scss').pipe(dest('./src/stylesheets'))
+    )
+})

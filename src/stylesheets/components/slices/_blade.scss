@@ -13,32 +13,19 @@
 
     &.orange{
         background-color: $primary_orange;
-
-        p{
-            color:black;
-        }
     }
     
     &.red{
         background-color: $primary_red;
-
-        p{
-            color:white;
-        }
     }
 
     &.purple{
         background-color: $primary_purple;
-        p{
-            color:white;
-        }
     }
 
     &.green{
         background-color: $primary_green;
-        p{
-            color:white;
-        }
+        color:white;
     }
     
     &.navygreen{
@@ -48,7 +35,7 @@
     
     &.white{
         background-color: $primary_white;
-        color:black;
+        color:white;
     }
     
     &.blue{
@@ -77,9 +64,9 @@
         }
         
         p{
+            color: $blade_content_color;
             font-size:16px;
             font-weight:lighter;
-
         }
     }
 }

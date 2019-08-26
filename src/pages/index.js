@@ -4,31 +4,18 @@ import { StaticQuery, graphql } from 'gatsby';
 import Layout from '../../IGP-Framework/components/layouts';
 import BlogPosts from '../../IGP-Framework/components/BlogPosts';
 import PageLinks from '../../IGP-Framework/components/PageLinks';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 const HomePage = ({ data }) => {
   return (
     <Layout>
-      <BlogHomeHead home={ data.prismic.allBlog_homes.edges.slice(0,1).pop().node } />
       <BlogPosts posts={ data.prismic.allPosts.edges }/>
       <PageLinks pages={data.prismic.allPages.edges}/>
     </Layout>
   )
 }
-
-// Using the queried Blog Home document data, we render the top section
-const BlogHomeHead = ({ home }) => {  
-  const avatar = { backgroundImage: 'url(' + home.image.url +')' };
-  return (
-    <div className="home-header" data-wio-id={ home._meta.id }>
-      <div className="blog-avatar" style={ avatar }>
-      </div>
-      <h1>{ RichText.asText(home.headline) }</h1>
-      <p className="blog-description">{ RichText.asText(home.description) }</p>
-    </div>
-  )
-};
-
 
 // Query for the Blog Home content in Prismic
 export default props => ( <StaticQuery query={graphql`
