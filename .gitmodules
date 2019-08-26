@@ -1,0 +1,3 @@
+[submodule "IGP-Framework"]
+	path = IGP-Framework
+	url = https://github.com/tsiemer/IGP-Framework.git
