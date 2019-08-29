@@ -13,13 +13,13 @@ import {
     DropdownItem } from 'reactstrap';
 
 
-function getSubItems(data, url){
+function getSubItems(data){
     let items = [];
     let counter = 0;
 
     for(let item of data){
         items.push(
-            <DropdownItem key={counter} href={`/${url}/` + item.sub_nav_link_label[0].text + '/'}>
+            <DropdownItem key={counter} href={'/blog/' + item.sub_nav_link_label[0].text + '/'}>
                 {item.sub_nav_link_label[0].text}
             </DropdownItem>
         )
@@ -65,7 +65,7 @@ export default class Navigation extends React.Component{
                                                         {navItem.primary.label[0].text} 
                                                     </DropdownToggle>
                                                     <DropdownMenu right>
-                                                        {getSubItems(navItem.fields, 'blogs')}
+                                                        {getSubItems(navItem.fields)}
                                                     </DropdownMenu>
                                                 </Dropdown> ) : (
                                                 <NavItem>
