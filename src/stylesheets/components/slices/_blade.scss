@@ -3,7 +3,7 @@
 .blade{
     width:100%;
     height:auto;
-    padding: 180px 100px 100px;
+    padding: 100px 100px;
     margin:0px;
     
     display:flex;
@@ -14,7 +14,7 @@
     &.orange{
         background-color: $primary_orange;
 
-        p, h1, h2, h3, h4{
+        p, h2, h3{
             color:white;
         }
     }
@@ -22,38 +22,45 @@
     &.red{
         background-color: $primary_red;
 
-        p{
+        p, h2, h3{
             color:white;
         }
     }
 
     &.purple{
         background-color: $primary_purple;
-        p{
+        p, h2, h3{
             color:white;
         }
     }
 
     &.green{
         background-color: $primary_green;
-        p{
+        p, h2, h3{
             color:white;
         }
     }
     
     &.navygreen{
         background-color: $primary_navy;
-        color:white;
+        p, h2, h3{
+            color:white;
+        }
     }
     
     &.white{
         background-color: $primary_white;
-        color:black;
+        p, h2{
+            color:black;
+        }
     }
     
     &.blue{
         background-color: $primary_blue;
-        color:white;
+        
+        p, h2, h3{
+            color:white;
+        }
     }
 
     .featured_image{
