@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "Levi Gable",
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "gatsby": "^2.1.32",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-offline": "^2.0.25",
@@ -34,10 +33,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "now-build": "gatsby build",
-    "reset-components": "rm -r ./src/components && gulp components",
-    "reset-styles": "gulp styles",
-    "reset-gatsby": "rm -r .cache public && gatsby develop"
+    "now-build": "gatsby build"
   },
   "repository": {
     "type": "git",

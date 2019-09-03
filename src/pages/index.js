@@ -1,10 +1,10 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import { StaticQuery, graphql } from 'gatsby';
-import Layout from '../../IGP-Framework/components/layouts';
-import BlogPosts from '../../IGP-Framework/components/BlogPosts';
-import PageLinks from '../../IGP-Framework/components/PageLinks';
-import 'bootstrap/dist/css/bootstrap.css';
+import Layout from '../components/layouts';
+import BlogPosts from '../components/BlogPosts';
+import PageLinks from '../components/PageLinks';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 
 

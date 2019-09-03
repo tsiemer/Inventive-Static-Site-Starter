@@ -19,13 +19,13 @@ module.exports = {
           type: 'Post',
           match: '/blog/:uid',
           path: '/blog-preview',
-          component: require.resolve('./IGP-Framework/templates/post.js')
+          component: require.resolve('./src/templates/post.js')
         },
         {
           type: 'Page',
           match: '/pages/:uid',
           path: '/page-preview',
-          component: require.resolve('./IGP-Framework/templates/page.js')
+          component: require.resolve('./src/templates/page.js')
         }]
       }
     },

@@ -50,18 +50,13 @@
     
     &.white{
         background-color: $primary_white;
-        p, h2{
             color:black;
         }
-    }
     
     &.blue{
         background-color: $primary_blue;
-        
-        p, h2, h3{
             color:white;
         }
-    }
 
     .featured_image{
         width:200px;
@@ -78,6 +73,7 @@
         }
 
         h2{
+            color:$blade_header_color;
             font-size:40px;
             font-weight:bold;
         }
