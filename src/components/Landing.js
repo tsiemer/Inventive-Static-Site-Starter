@@ -175,7 +175,7 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
-        case 'page_blade' : return (
+        case 'parallax_blade' : return (
           <div key={ index }>
             { <ParallaxBlade slice={ slice } /> }
           </div>
