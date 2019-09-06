@@ -96,7 +96,6 @@
     height:100px;
     position:absolute;
     left:0px;
-    // background: linear-gradient(to right bottom, #823A9C 49%, #fff 50%),    linear-gradient(-50deg, transparent 16px, #000 0);
 
     &.orange{
         background: linear-gradient(to right bottom, $primary_orange 49%, transparent 50%),    linear-gradient(-50deg, transparent 16px, transparent 0);
@@ -132,12 +131,11 @@
 }
 
 .skew-c{
-    // margin:50px 0px;
     width:100%;
     height:100px;
     position:absolute;
     left:0px;
-    // background: linear-gradient(to right bottom, #823A9C 49%, #fff 50%),    linear-gradient(-50deg, transparent 16px, #000 0);
+
 
     &.orange{
         background: linear-gradient(to right bottom, transparent 49%, $primary_orange 50%),    linear-gradient(-50deg, transparent 16px, transparent 0);

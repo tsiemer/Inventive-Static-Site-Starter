@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 // import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
-import { Blade, Text, StaffMember, Carousel, Quote, CardView } from '../components/slices'
+import { Blade, Text, StaffMember, Carousel, Quote, CardView, ParallaxBlade } from '../components/slices'
 
 // Query for the Page content in Prismic
 export const query = graphql`
@@ -58,6 +58,10 @@ export const query = graphql`
               type
               label
 
+              primary{
+                section_title
+              }
+
               fields{
               	full_name  
                 job_title
@@ -80,8 +84,13 @@ export const query = graphql`
               type
               label
 
+              primary{
+                title
+                background_color
+              }
+
               fields{
-              	image 
+                image
                 content
                 title
                 image_side
@@ -98,6 +107,29 @@ export const query = graphql`
                 name_of_the_author
               }
             }
+
+            ... on PRISMIC_Blog_homeBodyParallax_blade{
+              type
+              label
+
+              primary{
+                title
+                content
+                bubble_one
+                bubble_two
+                bubble_three
+                bubble_four
+                bubble_five
+                bubble_six
+                bubble_seven
+                bubble_eight
+                bubble_nine
+                bubble_ten
+                bubble_eleven
+                bubble_twelve
+                bubble_thirteen
+              }
+            }
           }
         }
       }
@@ -106,10 +138,11 @@ export const query = graphql`
 }
 `
 
+
+
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
-    console.log(slice);
     const res = (() => {
       switch(slice.type) {
         case 'text': return (
@@ -142,6 +175,12 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
+        case 'page_blade' : return (
+          <div key={ index }>
+            { <ParallaxBlade slice={ slice } /> }
+          </div>
+        )
+
         case 'carousel' : return (
           <div key={ index }>
             { <Carousel slice={ slice } /> }
@@ -157,9 +196,6 @@ const PageSlices = ({ slices }) => {
 
 // Display the title, date, and content of the Post
 const PageBody = ({ page }) => {
-
-  console.log("Page Body: ", page.body)
-
   return (
     <div className="container">
       <div className="Homepage-Heading" style={{width: '100vw', height: '700px', backgroundImage: `url("${page.image.url}")`}}>

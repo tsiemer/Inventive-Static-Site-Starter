@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
-import { Blade, Text, StaffMember, Carousel, Quote, CardView } from '../components/slices'
+import { Blade, Text, StaffMember, Carousel, Quote, CardView, ParallaxBlade } from '../components/slices'
 
 // Query for the Page content in Prismic
 export const query = graphql`
@@ -124,6 +124,12 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
+        case 'page_blade' : return (
+          <div key={ index }>
+            { <ParallaxBlade slice={ slice } /> }
+          </div>
+        )
+
         case 'quote' : return (
           <div key={ index }>
             { <Quote slice={ slice } /> }
@@ -147,6 +153,7 @@ const PageSlices = ({ slices }) => {
 const PageBody = ({ page }) => {
   const titled = page.title.length !== 0 ;
 
+  // console.log(page)
   return (
     <div>
       <div className="container post-header">

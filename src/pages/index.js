@@ -66,6 +66,10 @@ export default props => ( <StaticQuery query={graphql`
               type
               label
 
+              primary {
+                section_title
+              }
+
               fields{
               	full_name  
                 job_title
@@ -88,6 +92,11 @@ export default props => ( <StaticQuery query={graphql`
               type
               label
 
+              primary{
+                title
+                background_color
+              }
+
               fields{
               	image  
                 content
@@ -104,6 +113,29 @@ export default props => ( <StaticQuery query={graphql`
                 quote
                 portrait_author
                 name_of_the_author
+              }
+            }
+
+            ... on PRISMIC_Blog_homeBodyParallax_blade{
+              type
+              label
+
+              primary{
+                title
+                content
+                bubble_one
+                bubble_two
+                bubble_three
+                bubble_four
+                bubble_five
+                bubble_six
+                bubble_seven
+                bubble_eight
+                bubble_nine
+                bubble_ten
+                bubble_eleven
+                bubble_twelve
+                bubble_thirteen
               }
             }
           }
