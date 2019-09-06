@@ -1,0 +1,29 @@
+
+.carousel-container{
+    background-color:#4FD0E3;
+    padding:50px;
+
+    .Carousel {
+        max-width:85vw;
+        margin:0px auto;
+    
+        .carousel_image {
+            height:200px;
+        }
+    
+        .carousel_item{
+            background-color:white;
+            text-align:center;
+            width:300px;
+            padding:20px;
+        }
+    }
+}
+
+// li.react-multi-carousel-item.react-multi-carousel-item--active{
+//     max-width:300px;
+// }
+
+// li.react-multi-carousel-item {
+//     max-width:300px;
+// }

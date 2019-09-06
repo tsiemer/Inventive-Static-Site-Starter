@@ -50,13 +50,19 @@
     
     &.white{
         background-color: $primary_white;
+        p, h2{
             color:black;
         }
+    }
     
     &.blue{
         background-color: $primary_blue;
-            color:white;
-        }
+        color:white;
+    }
+
+    &.cardView{
+        flex-direction:column;
+    }
 
     .featured_image{
         width:200px;
@@ -73,7 +79,6 @@
         }
 
         h2{
-            color:$blade_header_color;
             font-size:40px;
             font-weight:bold;
         }
@@ -167,8 +172,6 @@
     }
 }
 
-
-
 .cta_button {
     color:white;
     padding:10px 20px;
@@ -238,4 +241,39 @@
     &.blue{
         color:$primary_blue;
     }
+}
+
+
+.Homepage-Heading{
+    height:500px;
+    width:100vw;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+
+    p, h1, h2, h3, h4 {
+        color:white;
+        text-align:center;
+    }
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    width:75vw;
+    margin:0px auto;
+}
+
+.card{
+    max-width:250px;
+    background-color:pink;
+    padding:20px;
+    margin:10px;
+    text-align:center;
+    font-weight:bold;
+    color:black;
 }

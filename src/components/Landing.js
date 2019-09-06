@@ -1,29 +1,26 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
+import { graphql } from 'gatsby'
+// import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { Blade, Text, StaffMember, Carousel, Quote, CardView } from '../components/slices'
 
 // Query for the Page content in Prismic
 export const query = graphql`
-query PageQuery($uid: String) {
+{
   prismic{
-    allPages(uid: $uid){
+    allBlog_homes{
       edges{
         node{
-          _meta{
-            id
-            uid
-            type
-          }
-
-          title
-          date
+            _meta{
+                id
+                type
+            }
+            headline
+            description
+            image
         
           body{
-            __typename
-
-            ... on PRISMIC_PageBodyBlade{
+            ... on PRISMIC_Blog_homeBodyBlade{
               type
               label
 
@@ -37,6 +34,8 @@ query PageQuery($uid: String) {
                 cta_button_text
                 cta_button_color
                 blade_background_color
+                text_alignment
+                code
 
                 cta_button{
                   __typename
@@ -55,17 +54,7 @@ query PageQuery($uid: String) {
               }
             }
 
-            ... on PRISMIC_PageBodyCard_view{
-              type
-              label
-
-              fields{
-              	card_title  
-                card_icon
-              }
-            }
-
-            ... on PRISMIC_PageBodyStaff_member {
+            ... on PRISMIC_Blog_homeBodyStaff_member{
               type
               label
 
@@ -77,7 +66,29 @@ query PageQuery($uid: String) {
               }
             }
 
-            ... on PRISMIC_PageBodyQuote {
+            ... on PRISMIC_Blog_homeBodyCard_view{
+              type
+              label
+
+              fields{
+              	card_title  
+                card_icon
+              }
+            }
+
+            ... on PRISMIC_Blog_homeBodyCarousel{
+              type
+              label
+
+              fields{
+              	image 
+                content
+                title
+                image_side
+              }
+            }
+
+            ... on PRISMIC_Blog_homeBodyQuote{
               type
               label
 
@@ -98,6 +109,7 @@ query PageQuery($uid: String) {
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
+    console.log(slice);
     const res = (() => {
       switch(slice.type) {
         case 'text': return (
@@ -112,15 +124,15 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
-        case 'card_view': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <CardView slice={ slice } /> }
-          </div>
-        )
-
         case 'staff_member' : return (
           <div key={ index }>
             { <StaffMember slice={ slice } /> }
+          </div>
+        )
+
+        case 'card_view' : return (
+          <div key={ index }>
+            { <CardView slice={ slice } /> }
           </div>
         )
 
@@ -145,30 +157,26 @@ const PageSlices = ({ slices }) => {
 
 // Display the title, date, and content of the Post
 const PageBody = ({ page }) => {
-  const titled = page.title.length !== 0 ;
+
+  console.log("Page Body: ", page.body)
 
   return (
-    <div>
-      <div className="container post-header">
-        <h1 data-wio-id={ page._meta.id }>
-          { titled ? RichText.asText(page.title) : 'Untitled' }
-        </h1>
+    <div className="container">
+      <div className="Homepage-Heading" style={{width: '100vw', height: '700px', backgroundImage: `url("${page.image.url}")`}}>
+        <h1> { page.headline[0].text }  </h1>
+        <p> { page.description[0].text }  </p>
       </div>
-      {/* Go through the slices of the post and render the appropiate one */}
+
       <PageSlices slices={ page.body } />
     </div>
-  );
+  )
 }
 
+
 export default (props) => {
-  // Define the Post content returned from Prismic
-  const doc = props.data.prismic.allPages.edges.slice(0,1).pop();
-
-  if(!doc) return null;
-
   return(
     <Layout>
-      <PageBody page={ doc.node } />
+      <PageBody page={ props.data[0].node } />
     </Layout>
   )
 }

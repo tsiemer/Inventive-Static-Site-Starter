@@ -1,105 +1,109 @@
 import React from 'react';
-import { RichText } from 'prismic-reactjs';
+// import { RichText } from 'prismic-reactjs';
 import { StaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layouts';
-import BlogPosts from '../components/BlogPosts';
-import PageLinks from '../components/PageLinks';
-// import 'bootstrap/dist/css/bootstrap.css';
+import Landing from '../components/Landing';
 
 
 
 const HomePage = ({ data }) => {
   return (
-    <Layout>
-      <BlogPosts posts={ data.prismic.allPosts.edges }/>
-      <PageLinks pages={data.prismic.allPages.edges}/>
-    </Layout>
+    <Landing data={data.prismic.allBlog_homes.edges}></Landing>
   )
 }
 
 // Query for the Blog Home content in Prismic
 export default props => ( <StaticQuery query={graphql`
-  {
-    prismic{
-      allBlog_homes(uid:null){
-        edges{
-          node{
+{
+  prismic{
+    allBlog_homes{
+      edges{
+        node{
             _meta{
-              id
-              type
+                id
+                type
             }
             headline
             description
             image
-          }
-        }
-      }
-      allPosts(sortBy: date_DESC){
-        edges{
-          node{
-            _meta{
-              id
-              uid
+        
+          body{
+            ... on PRISMIC_Blog_homeBodyBlade{
               type
-            }
-            title
-            date
-            body{
-              ... on PRISMIC_PostBodyText{
-                type
-                label
-                primary{
-                  text
+              label
+
+              primary{
+                section_title
+                subtitle
+                content
+                featured_image
+                button_color
+                image_side
+                cta_button_text
+                cta_button_color
+                blade_background_color
+                text_alignment
+                code
+
+                cta_button{
+                  __typename
+
+                  ... on PRISMIC__ExternalLink{
+                    url
+                  }
+
+                  ... on PRISMIC__FileLink{
+                    name
+                    url
+                    size
+                  }
+
                 }
               }
             }
-          }
-        }
-      }
 
-      allPages{
-        edges{
-          node{
-            _meta{
-              id
-              uid
+            ... on PRISMIC_Blog_homeBodyStaff_member{
               type
+              label
+
+              fields{
+              	full_name  
+                job_title
+                staff_image
+                bio
+              }
             }
-            
-            title
-            date
 
-            body{
-              __typename
-              ... on PRISMIC_PageBodyBlade{
-                type
-                label
+            ... on PRISMIC_Blog_homeBodyCard_view{
+              type
+              label
+              
+              fields{
+              	card_title  
+                card_icon
+              }
+            }
 
-                primary{
-                  section_title
-                  subtitle
-                  content
-                  featured_image
-                  cta_button_text
-                  cta_button_color
-                  blade_background_color
-                  button_color
+            ... on PRISMIC_Blog_homeBodyCarousel{
+              type
+              label
 
-                  cta_button{
-                    __typename
+              fields{
+              	image  
+                content
+                title
+                image_side
+              }
+            }
 
-                    ... on PRISMIC__ExternalLink{
-                      url
-                    }
+            ... on PRISMIC_Blog_homeBodyQuote{
+              type
+              label
 
-                    ... on PRISMIC__FileLink{
-                      name
-                      url
-                      size
-                    }
-
-                  }
-                }
+              primary{
+                quote
+                portrait_author
+                name_of_the_author
               }
             }
           }
@@ -107,6 +111,7 @@ export default props => ( <StaticQuery query={graphql`
       }
     }
   }
+}
 `} 
     render={ data => <HomePage data={data} {...props}/> }
   /> 
