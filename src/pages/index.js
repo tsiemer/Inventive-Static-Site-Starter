@@ -43,8 +43,8 @@ export default props => ( <StaticQuery query={graphql`
                 cta_button_color
                 blade_background_color
                 text_alignment
-                code
-
+                form_type
+                
                 cta_button{
                   __typename
 
@@ -68,6 +68,7 @@ export default props => ( <StaticQuery query={graphql`
 
               primary {
                 section_title
+                blade_background_color
               }
 
               fields{
@@ -121,6 +122,7 @@ export default props => ( <StaticQuery query={graphql`
               label
 
               primary{
+                blade_background_color
                 title
                 content
                 bubble_one

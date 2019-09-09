@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-// import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { Blade, Text, StaffMember, Carousel, Quote, CardView, ParallaxBlade } from '../components/slices'
+import parallaxScrolling from '../javascript/scrolling-effect';
 
-// Query for the Page content in Prismic
+
 export const query = graphql`
 {
   prismic{
@@ -18,6 +18,20 @@ export const query = graphql`
             headline
             description
             image
+            header_button {
+              __typename
+
+              ... on PRISMIC__ExternalLink{
+                url
+              }
+
+              ... on PRISMIC__FileLink{
+                name
+                url
+                size
+              }
+            }
+            header_button_text
         
           body{
             ... on PRISMIC_Blog_homeBodyBlade{
@@ -35,7 +49,7 @@ export const query = graphql`
                 cta_button_color
                 blade_background_color
                 text_alignment
-                code
+                form_type
 
                 cta_button{
                   __typename
@@ -60,6 +74,7 @@ export const query = graphql`
 
               primary{
                 section_title
+                blade_background_color
               }
 
               fields{
@@ -139,8 +154,6 @@ export const query = graphql`
 `
 
 
-
-// Sort and display the different slice options
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
@@ -194,10 +207,10 @@ const PageSlices = ({ slices }) => {
   })
 }
 
-// Display the title, date, and content of the Post
 const PageBody = ({ page }) => {
   return (
     <div className="container">
+      <script src={parallaxScrolling}></script>
       <div className="Homepage-Heading" style={{width: '100vw', height: '700px', backgroundImage: `url("${page.image.url}")`}}>
         <h1> { page.headline[0].text }  </h1>
         <p> { page.description[0].text }  </p>
@@ -207,7 +220,6 @@ const PageBody = ({ page }) => {
     </div>
   )
 }
-
 
 export default (props) => {
   return(

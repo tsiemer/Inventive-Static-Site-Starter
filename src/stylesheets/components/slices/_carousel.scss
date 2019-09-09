@@ -1,9 +1,8 @@
-
 .carousel-container{
     padding:50px;
     height:670px;
+    text-align:center;
     display:flex;
-    align-items:center;
     justify-content: center;
     flex-direction:column;
     
@@ -56,6 +55,7 @@
             background-color:white;
             text-align:center;
             width:300px;
+            min-height:350px;
             padding:20px;
         }
     }

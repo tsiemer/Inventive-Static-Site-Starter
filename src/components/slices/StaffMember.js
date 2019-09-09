@@ -5,6 +5,7 @@ import htmlSerializer from '../../utils/htmlSerializer';
 
 export default ({ slice }) =>
   <div>
+    {/* <div className={"skew-c " + slice.primary.blade_background_color}></div> */}
     <h2 className="staff_member_header">{RichText.asText(slice.primary.section_title, linkResolver, htmlSerializer)}</h2>
     <div  className="staff">
         {slice.fields.map(item => {
@@ -18,4 +19,5 @@ export default ({ slice }) =>
             );
         })}
     </div>
+    <div className={"skew-cc " + slice.primary.blade_background_color}></div>
   </div>
